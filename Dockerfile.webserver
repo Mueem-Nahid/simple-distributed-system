@@ -1,0 +1,5 @@
+# Use the official php:apache image as the base
+FROM php:apache
+
+# Copy the PHP application files to the container
+COPY customer_facing_app/ /var/www/html/

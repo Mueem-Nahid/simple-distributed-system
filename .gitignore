@@ -1,0 +1,22 @@
+# Ignore Python-related files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore Docker-related files
+docker-compose.yml
+*.env
+
+# Ignore database data
+database/
+
+# Ignore IDE/Editor specific files
+.vscode/
+.idea/
+*.code-workspace
+
+# Ignore system and temporary files
+Thumbs.db
+.DS_Store
+desktop.ini

@@ -1,0 +1,5 @@
+# Use a base HAProxy image
+FROM haproxy:latest
+
+# Copy the HAProxy configuration file to the container
+COPY haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
