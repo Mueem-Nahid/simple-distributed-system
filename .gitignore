@@ -9,7 +9,7 @@ docker-compose.yml
 *.env
 
 # Ignore database data
-database/
+# database/
 
 # Ignore IDE/Editor specific files
 .vscode/
