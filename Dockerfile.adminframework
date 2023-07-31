@@ -6,9 +6,10 @@ WORKDIR /app
 
 # Copy the Flask application files to the container
 COPY admin_web_framework/ /app/
+COPY admin_web_framework/requirements.txt /app/
 
 # Install Flask and any other required dependencies
-RUN pip install Flask
+RUN pip install -r requirements.txt
 
 # Expose the port that Flask will run on
 EXPOSE 5002
