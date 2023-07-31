@@ -1,0 +1,71 @@
+version: "3"
+
+services:
+  load_balancer:
+    image: haproxy:latest
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+    ports:
+      - "80:80"
+    depends_on:
+      - web_server_1
+      - web_server_2
+      - admin_server_1
+      - admin_server_2
+
+  web_server_1:
+    build:
+      context: .
+      dockerfile: Dockerfile.webserver
+    ports:
+      - "8083:80"
+
+  web_server_2:
+    build:
+      context: .
+      dockerfile: Dockerfile.webserver
+    ports:
+      - "8084:80"
+
+  admin_server_1:
+    build:
+      context: .
+      dockerfile: Dockerfile.adminserver
+    ports:
+      - "8081:80"
+
+  admin_server_2:
+    build:
+      context: .
+      dockerfile: Dockerfile.adminserver
+    ports:
+      - "8082:80"
+
+  web_framework:
+    build:
+      context: .
+      dockerfile: Dockerfile.webframework
+    ports:
+      - "5003:5003"
+    depends_on:
+      - db-mysql
+    restart: always
+
+  admin_web_framework:
+    build:
+      context: .
+      dockerfile: Dockerfile.adminframework
+    ports:
+      - "5002:5002"
+    depends_on:
+      - db-mysql
+    restart: always
+
+  db-mysql:
+    image: mysql
+    expose:
+      - "3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d/:ro

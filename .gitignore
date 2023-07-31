@@ -5,7 +5,6 @@ __pycache__/
 *.pyd
 
 # Ignore Docker-related files
-docker-compose.yml
 *.env
 
 # Ignore database data
