@@ -8,6 +8,11 @@
 <body>
    <h1>Welcome to the Admin Dashboard</h1>
    <h2>Add New Product</h2>
+   <?php
+   // Display web-server hostname
+   $hostname = gethostname();
+   echo '<p style="position: absolute; top: 10px; left: 10px; font-size: 16px; background-color: #f2f2f2; padding: 5px;">Web Server: ' . $hostname . '</p>';
+   ?>
    <form id="addProductForm" method="POST">
       <label for="product_name">Product Name:</label>
       <input type="text" id="product_name" name="product_name" required><br><br>

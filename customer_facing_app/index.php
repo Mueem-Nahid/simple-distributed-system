@@ -29,6 +29,11 @@
    echo '</table>';
    ?>
 
+   <?php
+   // Display web-server hostname
+   $hostname = gethostname();
+   echo '<p style="position: absolute; top: 10px; left: 10px; font-size: 16px; background-color: #f2f2f2; padding: 5px;">Web Server: ' . $hostname . '</p>';
+   ?>
 </body>
 
 </html>
