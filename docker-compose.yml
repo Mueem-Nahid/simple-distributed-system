@@ -7,6 +7,7 @@ services:
       - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
     ports:
       - "80:80"
+      # - "8081:8081"
     depends_on:
       - web_server_1
       - web_server_2

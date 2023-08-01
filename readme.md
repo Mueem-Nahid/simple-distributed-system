@@ -40,3 +40,10 @@ docker-compose up --build
    - Admin Web Framework: http://localhost:5002 (Similar to the Web Framework but with write access to the database)
    - Load Balancer: http://localhost/ (Round-robin load balancing between customer-facing web servers)
    - Database (MySQL): Not directly accessible from the host machine
+
+5. Some usefull docker cmd:
+   1. To kill all running docker container
+
+```bash
+docker stop $(docker ps -q)
+```
